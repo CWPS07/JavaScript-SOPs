@@ -1,1 +1,31 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Change after hover over</title>
+</head>
+<body style="background-color: white;">
+
+    <button id="colorBtn">Hover over me!</button>
+
+    <script>
+        const colors = ["Red", "Blue", "Green", "Yellow", "Orange", "Purple", "Pink","Grey","Indigo"];
+        var intervalId;
+        var index = 0;
+
+        const btn = document.getElementById('colorBtn');
+
+        btn.onmouseover = function() {
+            intervalId = setInterval(() => {
+                document.body.style.backgroundColor = colors[index];
+                index = (index + 1) % colors.length;
+            }, 1000);
+        };
+
+        btn.onmouseout = function() {
+            clearInterval(intervalId);
+            document.body.style.backgroundColor = "white";
+        };
+    </script>
+</body>
+</html>
