@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Automatic Change</title>
+    <style>
+        h1 {
+            background: rgba(255, 255, 255, 0.8);
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Watch the Background Change!</h1>
+
+    <script>
+        window.onload = function () {
+            const myColors = ["LightCoral","SkyBlue","Magneta","Khaki","SlateBlue","Tomato","Viovar","Indigo"];
+
+            var i = 0;
+
+            setInterval(function () {
+                document.body.style.backgroundColor = myColors[i];
+
+                i++;
+
+                if (i === myColors.length) {
+                    i = 0;
+                }
+            }, 3000);
+        };
+    </script>
+</body>
+
+</html>
