@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>String Operations</title>
+</head>
+
+<body>
+
+    <h2>Palindrome Checker</h2>
+
+    Enter String: <input type="text" id="strUser">
+
+    <button onclick="palindrome()">Check String</button>
+
+    <script>
+         function palindrome() {
+                var input = document.getElementById("strUser").value;
+
+                var reversed = input.split('').reverse().join('');
+
+                if (input === "") {
+                    alert("Please enter a string.");
+                } else if (input === reversed) {
+                    alert("The string is a Palindrome.");
+                } else {
+                    alert("The string is NOT a Palindrome.");
+                }
+            }
+    </script>
+
+</body>
+
+</html>
