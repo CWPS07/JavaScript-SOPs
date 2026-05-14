@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>SOP 5 - Temperature Converter</title>
+</head>
+
+<body>
+
+    <h2>Temperature Converter</h2>
+
+    <p>Enter Temperature:</p>
+    <input type="number" id="tempInput">
+
+    <br><br>
+
+    <button onclick="toFahrenheit()">Convert to Fahrenheit</button>
+    <button onclick="toCelsius()">Convert to Celsius</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function toFahrenheit() {
+            var c = parseFloat(document.getElementById("tempInput").value);
+
+            if (isNaN(c)) {
+                alert("Please enter a number");
+                return;
+            }
+
+            var f = (c * 9 / 5) + 32;
+
+            document.getElementById("result").innerHTML =
+                c + " Celsius = " + f + " Fahrenheit";
+        }
+
+        function toCelsius() {
+            var f = parseFloat(document.getElementById("tempInput").value);
+
+            if (isNaN(f)) {
+                alert("Please enter a number");
+                return;
+            }
+
+            var c = (f - 32) * 5 / 9;
+
+            document.getElementById("result").innerHTML =
+                f + " Fahrenheit = " + c + " Celsius";
+        }
+    </script>
+
+</body>
+
+</html>
