@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>Student Grade</title>
+</head>
+
+<body>
+
+    <h2>Student Marksheet</h2>
+    <p>Enter marks for six subjects:</p>
+
+    Physis: <input type="number" id="sub1"><br><br>
+    Chemistry: <input type="number" id="sub2"><br><br>
+    Maths: <input type="number" id="sub3"><br><br>
+    Biology: <input type="number" id="sub4"><br><br>
+    I.T.: <input type="number" id="sub5"><br><br>
+    Marathi: <input type="number" id="sub6"><br><br>
+
+    <button onclick="calculateGrade()">Compute Average and Grade</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateGrade() {
+            var m1 = parseFloat(document.getElementById("sub1").value);
+            var m2 = parseFloat(document.getElementById("sub2").value);
+            var m3 = parseFloat(document.getElementById("sub3").value);
+            var m4 = parseFloat(document.getElementById("sub4").value);
+            var m5 = parseFloat(document.getElementById("sub5").value);
+            var m6 = parseFloat(document.getElementById("sub6").value);
+
+            var total = m1 + m2 + m3 + m4 + m5 + m6;
+            var average = total / 6;
+
+            var grade = "";
+            if (average >= 91 && average <= 100) {
+                grade = "A";
+            } else if (average >= 81 && average <= 90) {
+                grade = "B";
+            } else if (average >= 71 && average <= 80) {
+                grade = "C";
+            } else if (average >= 61 && average <= 70) {
+                grade = "D";
+            } else if (average >= 35 && average <= 60) {
+                grade = "F";
+            } else if(average >= 0 && average <=35){
+                grade = "Hard luck, try again!";
+            }else{
+                grade = "Enter marks!"
+            }
+
+            document.getElementById("result").innerHTML =
+                "Average Marks:- " + average.toFixed(2) + "<br>Grade:- " + grade;
+        }
+    </script>
+
+</body>
+
+</html>
