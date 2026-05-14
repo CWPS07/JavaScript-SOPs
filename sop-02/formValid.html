@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SOP 2 - Strict Validation</title>
+    <style>
+        .form-box {
+            border: 4px solid black;
+            padding: 20px;
+            width: 450px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-box">
+        <h3>Information Form</h3>
+        <form onsubmit="formValid()">
+            
+                
+                    Your Name:-
+                    <input type="text" id="nm" required> <br><br>
+                
+                
+                    Address:-
+                    
+                        <textarea id="addr" placeholder="permanent address" required></textarea> <br><br>
+                    
+
+                    Contact:-
+                    
+                        <input type="text" id="ph" maxlength="10" pattern="\d{10}" title="Must be exactly 10 digits" required> <br><br>
+                    
+
+                    E-mail:-
+                    
+                        <input type="text" id="em" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Must have one @ and at least one dot." required> <br><br>
+                    
+                
+                    <input type="submit" value="Submit">
+                
+            
+        </form>
+    </div>
+
+    <script>
+        function formValid() {
+            let phone = document.getElementById("ph").value;
+            let email = document.getElementById("em").value;
+
+            if (phone.length !== 10 || isNaN(phone)) {
+                alert("Telephone number must be exactly 10 digits only.");
+            }
+
+            let atCount = (email.match(/@/g) || []).length;
+            if (atCount !== 1) {
+                alert("Email must contain exactly one '@' symbol.");
+            }
+
+            if (email.startsWith("@") || email.endsWith("@")) {
+                alert("'@' cannot be at the beginning or the end of the email.");
+            }
+
+            if (email.indexOf(".") === -1) {
+                alert("Email must contain at least one dot (.).");
+            }
+
+            alert("All validations passed! Form submitted.");
+        }
+    </script>
+
+</body>
+
+</html>
