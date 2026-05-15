@@ -1,3 +1,7 @@
+### 2. Advanced JavaScript
+* **SOP 1:** Event-driven programming (e.g., background color changing).
+* **SOP 2:** String manipulation, loops, and Palindrome validation.
+
 ## JavaScript
 
 <details>
